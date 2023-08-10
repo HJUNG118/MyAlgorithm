@@ -9,7 +9,6 @@ for _ in range(k):
 dx = [1, -1, 0, 0]
 dy = [0, 0, 1, -1]
 result = []
-
 def bfs(x, y):
     cnt = 1
     deq = deque([(x, y)])
@@ -24,7 +23,6 @@ def bfs(x, y):
                 deq.append((nx, ny))
                 cnt += 1
     return cnt
-
 for i in range(m):
     for j in range(n):
         if maps[i][j] == 0:
