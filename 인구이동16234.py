@@ -7,8 +7,7 @@ dr = [1, -1, 0, 0]
 dc = [0, 0, 1, -1]
 cnt = 0
 def bfs(row, col, visit):
-    result = set()
-    result.add((row, col))
+    result = [(row, col)]
     deq = deque([(row, col)])
     visit[row][col] = True
     while deq:
@@ -16,12 +15,11 @@ def bfs(row, col, visit):
         for i in range(4):
             nr = r_ + dr[i]
             nc = c_ + dc[i]
-            if 0 <= nr < n and 0 <= nc < n:
+            if 0 <= nr < n and 0 <= nc < n and not visit[nr][nc]:
                 if l <= abs(maps[nr][nc] - maps[r_][c_]) <= r:
-                    if (nr, nc) not in result:
-                      result.add((nr, nc))
-                      deq.append((nr, nc))
-                      visit[nr][nc] = True
+                    result.append((nr, nc))
+                    deq.append((nr, nc))
+                    visit[nr][nc] = True
     if len(result) > 1:
         return result
     else:
@@ -29,7 +27,6 @@ def bfs(row, col, visit):
 
 def average(result):
     value = 0
-    result = list(result)
     for i, j in result:
         value += maps[i][j]
     return value//len(result)
@@ -54,3 +51,4 @@ while True:
   else:
       break
 print(cnt)
+
