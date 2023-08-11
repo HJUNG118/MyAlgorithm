@@ -7,7 +7,7 @@ dr = [1, -1, 0, 0]
 dc = [0, 0, 1, -1]
 cnt = 0
 def bfs(row, col, visit):
-    result = [(row, col)]
+    result = deque([(row, col)])
     deq = deque([(row, col)])
     visit[row][col] = True
     while deq:
@@ -51,4 +51,6 @@ while True:
   else:
       break
 print(cnt)
+
+
 
