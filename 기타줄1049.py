@@ -12,5 +12,4 @@ else:
     answer = onePackage[0][1] * n
 print(answer)
 
-        
-
+        sddfsd
